@@ -12,7 +12,7 @@ function formatTime(value: number) {
   return hours ? `${hours}:${pad(minutes)}:${pad(seconds)}` : `${minutes}:${pad(seconds)}`;
 }
 
-function PlayerIcon({ name }: { name: 'play' | 'pause' | 'volume' | 'muted' }) {
+function PlayerIcon({ name }: { name: 'play' | 'pause' | 'volume' | 'muted' | 'download' }) {
   return (
     <svg className="player-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">
       {name === 'play' && <><circle cx="12" cy="12" r="9.2" /><path d="M10.2 8.6v6.8l5.4-3.4-5.4-3.4Z" fill="currentColor" stroke="none" /></>}
@@ -20,6 +20,7 @@ function PlayerIcon({ name }: { name: 'play' | 'pause' | 'volume' | 'muted' }) {
       {(name === 'volume' || name === 'muted') && <path d="M4 9.5v5h3.6l4.4 3.6V5.9L7.6 9.5H4Z" fill="currentColor" />}
       {name === 'volume' && <path d="M15.6 9.2a4 4 0 0 1 0 5.6M18 6.8a7.4 7.4 0 0 1 0 10.4" />}
       {name === 'muted' && <path d="m15.6 9.6 4.8 4.8m0-4.8-4.8 4.8" />}
+      {name === 'download' && <path d="M12 4.5v10.2m-4-3.8 4 4 4-4M5.5 19.5h13" />}
     </svg>
   );
 }
@@ -112,7 +113,7 @@ export default function MiniPlayer() {
         onVolumeChange={event => { setVolume(event.currentTarget.volume); setMuted(event.currentTarget.muted); }}
         onError={() => { setFailed(true); setPlaying(false); }}
       />
-      <img className="player-cover" src={track.cover} width="40" height="40" alt="" />
+      <img className={`player-cover${playing ? ' is-playing' : ''}`} src={track.cover} width="40" height="40" alt="" />
       <div className="player-main">
         <div className="player-row">
           <button type="button" className="player-button" onClick={toggle} disabled={failed} aria-label={playing ? 'Пауза' : 'Воспроизвести'}>
@@ -136,6 +137,9 @@ export default function MiniPlayer() {
               <PlayerIcon name={silent ? 'muted' : 'volume'} />
             </button>
           </div>
+          <a className="player-button" href={track.src} download="Cosmo 3.mp3" aria-label="Скачать трек" title="Скачать трек">
+            <PlayerIcon name="download" />
+          </a>
         </div>
         <input
           className="player-range player-seek"
