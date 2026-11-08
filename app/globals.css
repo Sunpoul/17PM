@@ -132,7 +132,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .intro-bottom{margin-top:0}
 .blog-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .post-date{font-size:13px;line-height:1.2;margin-bottom:8px}
-.project-copy>p.post-lead{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden;min-height:0;max-height:none}
 .post-no-cover{display:block;aspect-ratio:4/3;border-radius:12px;background:#dededc}
 a.project-trigger{text-decoration:none}
 
