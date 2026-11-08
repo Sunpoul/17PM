@@ -133,7 +133,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 #blog .view-heading{padding:12px}
 #blog .view-heading>p a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 #blog .view-heading>p a:hover{color:#18732a}
-.blog-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .post-date{font-size:13px;line-height:1.2;margin-bottom:8px}
 .post-no-cover{display:block;aspect-ratio:4/3;border-radius:12px;background:#dededc}
 a.project-trigger{text-decoration:none}
