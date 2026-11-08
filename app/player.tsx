@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, useState, type CSSProperties } from 'react';
 
-const track = { src: '/audio/cosmo-3.mp3', title: 'Cosmo 3', artist: 'Павел Маркелов', cover: '/player/cover.png' };
+const track = { src: '/audio/cosmo-3.mp3', title: 'Музыка для работы', artist: 'Павел Маркелов', cover: '/player/cover.png' };
 
 function formatTime(value: number) {
   if (!Number.isFinite(value) || value < 0) return '0:00';
@@ -137,7 +137,7 @@ export default function MiniPlayer() {
               <PlayerIcon name={silent ? 'muted' : 'volume'} />
             </button>
           </div>
-          <a className="player-button" href={track.src} download="Cosmo 3.mp3" aria-label="Скачать трек" title="Скачать трек">
+          <a className="player-button" href={track.src} download={`${track.title}.mp3`} aria-label="Скачать трек" title="Скачать трек">
             <PlayerIcon name="download" />
           </a>
         </div>
