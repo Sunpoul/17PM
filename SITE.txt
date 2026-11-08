@@ -1,0 +1,7 @@
+17PM — Павел Маркелов
+Сайт: https://pavel-markelov-direction.stripymochi.chatgpt.site/
+
+Исходники: app/, public/, package.json.
+Готовая статическая сборка: out/.
+Запуск: npm install, npm run dev.
+Сборка: npm run build.
