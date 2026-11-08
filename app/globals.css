@@ -155,3 +155,13 @@ a.project-trigger{text-decoration:none}
  .project-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px}
  .project-copy>p{display:block;overflow:visible;min-height:0;max-height:none;-webkit-line-clamp:unset;line-clamp:unset}
 }
+
+/* Case modal: a long, full-width grid of text blocks and images. */
+.case-long{display:flex;flex-direction:column;gap:2px;margin-top:4px}
+.case-long img{display:block;width:100%;height:auto;border-radius:16px;background:var(--image-bg,#dededc)}
+.case-block{display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:14px;background:var(--inset)}
+.case-block h3{margin:10px 0 0;font-size:22px;line-height:1.2;letter-spacing:-.8px;font-weight:600}
+.case-block>h3:first-child{margin-top:0}
+.case-block p{margin:0;font-size:17px;line-height:1.45;color:var(--ink)}
+.case-block ul{display:flex;flex-direction:column;gap:6px;margin:0;padding-left:20px;font-size:17px;line-height:1.4;color:var(--muted)}
+.case-external{margin-top:2px}
