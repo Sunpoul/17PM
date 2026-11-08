@@ -1,5 +1,5 @@
 17PM — Павел Маркелов
-Сайт: https://pavel-markelov-direction.stripymochi.chatgpt.site/
+Сайт: https://17pm.ru/
 
 Исходники: app/, public/, package.json.
 Готовая статическая сборка: out/.
