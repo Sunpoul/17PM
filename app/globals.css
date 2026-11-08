@@ -130,6 +130,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
 .player-range:focus-visible,.player-button:focus-visible{outline:2px solid #555;outline-offset:3px}
 .desk-br{display:none}
 .intro-bottom{margin-top:0}
+#contact .panel{padding:12px}
+#contact .contact-form input,#contact .contact-form textarea{padding:12px}
 #blog .view-heading{padding:12px}
 #blog .view-heading>p a{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
 #blog .view-heading>p a:hover{color:#18732a}
