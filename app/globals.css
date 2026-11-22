@@ -184,8 +184,6 @@ a.project-trigger{text-decoration:none}
 
 .blog-article-header {
   max-width: var(--article-wide-measure);
-  padding-top: 14px;
-  border-top: 1px solid var(--ink);
 }
 
 .blog-article-header time {
@@ -196,7 +194,7 @@ a.project-trigger{text-decoration:none}
 
 .blog-article h1 {
   max-width: 1120px;
-  margin: clamp(16px, 2vw, 30px) 0 clamp(16px, 2.3vw, 32px);
+  margin: 0 0 clamp(16px, 2.3vw, 32px);
   font-size: clamp(34px, 6.4vw, 92px);
   font-weight: 600;
   line-height: 1.02;
@@ -222,7 +220,7 @@ a.project-trigger{text-decoration:none}
 
 .blog-article-credit {
   max-width: var(--article-measure);
-  margin: 16px 0 0;
+  margin: 8px 0 0;
 }
 
 .blog-article-credit a,
@@ -264,7 +262,7 @@ a.project-trigger{text-decoration:none}
 
 .blog-article figure {
   max-width: var(--article-figure-measure);
-  margin: 0 0 clamp(32px, 5vw, 72px);
+  margin: clamp(24px, 3.6vw, 52px) 0 clamp(32px, 5vw, 72px);
 }
 
 .blog-article figure img {
@@ -309,4 +307,94 @@ a.project-trigger{text-decoration:none}
 
 .blog-article-body p + p {
   margin-top: .8em;
+}
+
+.blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.blog-filters .pill {
+  min-height: 44px;
+  padding-inline: 16px;
+}
+
+.blog-filters .pill[aria-pressed="true"] {
+  background: var(--accent);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.blog-post-featured {
+  background: #e9ece4;
+}
+
+.blog-post-featured .project-trigger {
+  height: 100%;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(12px, 2vw, 28px);
+  padding: clamp(12px, 1.5vw, 22px);
+}
+
+.blog-post-featured .project-trigger > img,
+.blog-post-featured .post-no-cover {
+  aspect-ratio: 4 / 3;
+  background: #f6f7f3;
+}
+
+.blog-post-featured .project-copy {
+  padding: 0;
+}
+
+.blog-post-featured .project-title h3 {
+  font-size: clamp(25px, 2.7vw, 44px);
+  line-height: 1.07;
+  letter-spacing: -.04em;
+  text-wrap: balance;
+}
+
+.blog-post-featured .project-copy > p {
+  display: block;
+  min-height: 0;
+  max-height: none;
+  margin: 12px 0 0;
+  font-size: clamp(15px, 1.3vw, 18px);
+  line-height: 1.4;
+}
+
+.blog-empty {
+  margin: 0;
+  padding: 16px;
+}
+
+@media (min-width: 650px) {
+  .blog-post-featured .project-trigger {
+    grid-template-columns: minmax(0, 46%) minmax(0, 1fr);
+  }
+}
+
+@media (min-width: 901px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .blog-post-featured {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 1200px) {
+  .blog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .blog-post-featured {
+    grid-row: span 2;
+  }
 }

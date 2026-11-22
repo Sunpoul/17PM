@@ -45,16 +45,16 @@ export default async function ArticlePage({ params }: Props) {
         <main id="article" tabIndex={-1}>
           <article className="panel blog-article">
             <header className="blog-article-header">
-              <time className="micro" dateTime={article.date}>{articleDate(article.date)}</time>
               <h1>{article.title}</h1>
               <p className="blog-article-lead">{article.lead}</p>
+              <hr className="blog-article-divider" />
+              <time className="micro" dateTime={article.date}>{articleDate(article.date)}</time>
               <p className="blog-article-credit">
                 Разбор исследования {article.source.name}. Автор оригинала — {article.source.author}.
                 {' '}<a href={article.source.url}>Оригинал на английском</a>
               </p>
               <ArticleActions title={article.title} url={`https://17pm.ru${articlePath(article.slug)}`} />
             </header>
-            <hr className="blog-article-divider" />
             <figure>
               <img src={article.cover} alt={article.coverAlt}
                 width={article.coverWidth} height={article.coverHeight} fetchPriority="high" />
