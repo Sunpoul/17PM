@@ -52,6 +52,7 @@ export default async function ArticlePage({ params }: Props) {
                 {' '}<a href={article.source.url}>Оригинал на английском</a>
               </p>
             </header>
+            <hr className="blog-article-divider" />
             <figure>
               <img src={article.cover} alt={article.coverAlt}
                 width={article.coverWidth} height={article.coverHeight} fetchPriority="high" />
