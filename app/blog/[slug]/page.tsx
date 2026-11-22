@@ -1,0 +1,71 @@
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
+import { articles, articleDate, articlePath } from '../articles';
+
+type Props = { params: Promise<{ slug: string }> };
+export const dynamicParams = false;
+export const generateStaticParams = () => articles.map(({ slug }) => ({ slug }));
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const article = articles.find(item => item.slug === slug);
+  if (!article) notFound();
+  const title = `${article.title} · 17PM`;
+  const url = articlePath(slug);
+
+  return {
+    title,
+    description: article.lead,
+    alternates: { canonical: url },
+    openGraph: {
+      title, description: article.lead, type: 'article', locale: 'ru_RU', url,
+      publishedTime: article.date,
+      images: [{ url: article.cover, width: 1200, height: 760, alt: article.coverAlt }],
+    },
+    twitter: { card: 'summary_large_image', title, description: article.lead, images: [article.cover] },
+  };
+}
+
+export default async function ArticlePage({ params }: Props) {
+  const { slug } = await params;
+  const article = articles.find(item => item.slug === slug);
+  if (!article) notFound();
+
+  return (
+    <>
+      <a className="skip-link" href="#article">Перейти к статье</a>
+      <div className="site-shell">
+        <header className="topbar">
+          <a className="brand" href="/" aria-label="17PM — на главную">17PM</a>
+          <a className="pill outline" href="/blog/">Все статьи</a>
+        </header>
+        <main id="article" tabIndex={-1}>
+          <article className="panel blog-article">
+            <header className="blog-article-header">
+              <time className="micro" dateTime={article.date}>{articleDate(article.date)}</time>
+              <h1>{article.title}</h1>
+              <p className="blog-article-lead">{article.lead}</p>
+              <p className="blog-article-credit">
+                Разбор исследования {article.source.name}. Автор оригинала — {article.source.author}.
+                {' '}<a href={article.source.url}>Оригинал на английском</a>
+              </p>
+            </header>
+            <figure>
+              <img src={article.cover} alt={article.coverAlt}
+                width="1200" height="760" fetchPriority="high" />
+              <figcaption>{article.coverCredit}</figcaption>
+            </figure>
+            <div className="blog-article-body">
+              {article.sections.map(section => (
+                <section key={section.title}>
+                  <h2>{section.title}</h2>
+                  {section.paragraphs.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+                </section>
+              ))}
+            </div>
+          </article>
+        </main>
+      </div>
+    </>
+  );
+}

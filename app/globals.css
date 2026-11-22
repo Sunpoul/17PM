@@ -165,3 +165,74 @@ a.project-trigger{text-decoration:none}
 .case-block p{margin:0;font-size:17px;line-height:1.45;color:var(--ink)}
 .case-block ul{display:flex;flex-direction:column;gap:6px;margin:0;padding-left:20px;font-size:17px;line-height:1.4;color:var(--muted)}
 .case-external{margin-top:2px}
+
+.blog-heading > h1 {
+  font: inherit;
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.blog-article {
+  padding: clamp(16px, 5vw, 64px);
+}
+
+.blog-article-header,
+.blog-article-body {
+  max-width: 68ch;
+  margin-inline: auto;
+}
+
+.blog-article h1 {
+  margin: 12px 0 20px;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.03;
+  letter-spacing: -.045em;
+}
+
+.blog-article-lead {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  line-height: 1.5;
+}
+
+.blog-article-credit,
+.blog-article figcaption {
+  font-size: .875rem;
+  line-height: 1.5;
+}
+
+.blog-article-credit a {
+  text-decoration: underline;
+  text-underline-offset: .2em;
+}
+
+.blog-article figure {
+  margin: 32px auto;
+  max-width: 830px;
+}
+
+.blog-article figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.blog-article figcaption {
+  margin-top: 8px;
+}
+
+.blog-article-body section + section {
+  margin-top: 32px;
+}
+
+.blog-article-body h2 {
+  margin: 0 0 10px;
+  font-size: clamp(1.375rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+.blog-article-body p {
+  margin: 0 0 12px;
+  line-height: 1.65;
+}

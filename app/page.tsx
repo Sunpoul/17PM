@@ -1,2 +1,4 @@
 import Portfolio from './portfolio';
-export default function Home() { return <Portfolio/>; }
+import { blogIndex } from './blog/blog-index';
+
+export default function Home() { return <Portfolio blog={blogIndex} />; }
