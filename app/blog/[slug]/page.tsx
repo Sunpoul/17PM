@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { articles, articleDate, articlePath } from '../articles';
+import ArticleActions from '../article-actions';
 
 type Props = { params: Promise<{ slug: string }> };
 export const dynamicParams = false;
@@ -51,6 +52,7 @@ export default async function ArticlePage({ params }: Props) {
                 Разбор исследования {article.source.name}. Автор оригинала — {article.source.author}.
                 {' '}<a href={article.source.url}>Оригинал на английском</a>
               </p>
+              <ArticleActions title={article.title} url={`https://17pm.ru${articlePath(article.slug)}`} />
             </header>
             <hr className="blog-article-divider" />
             <figure>

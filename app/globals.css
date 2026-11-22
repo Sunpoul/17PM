@@ -226,10 +226,33 @@ a.project-trigger{text-decoration:none}
 }
 
 .blog-article-credit a,
-.blog-article figcaption a {
+.blog-article figcaption a,
+.blog-article-share-status a {
   color: var(--ink);
   text-decoration: underline;
   text-underline-offset: .2em;
+}
+
+.blog-article-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.blog-article-actions .pill {
+  min-height: 44px;
+}
+
+.blog-article-share-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.blog-article-share-status:not(:empty) {
+  margin-top: 8px;
 }
 
 .blog-article-divider {
