@@ -20,7 +20,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title, description: article.lead, type: 'article', locale: 'ru_RU', url,
       publishedTime: article.date,
-      images: [{ url: article.cover, width: 1200, height: 760, alt: article.coverAlt }],
+      images: [{
+        url: article.cover, width: article.coverWidth, height: article.coverHeight, alt: article.coverAlt,
+      }],
     },
     twitter: { card: 'summary_large_image', title, description: article.lead, images: [article.cover] },
   };
@@ -52,8 +54,11 @@ export default async function ArticlePage({ params }: Props) {
             </header>
             <figure>
               <img src={article.cover} alt={article.coverAlt}
-                width="1200" height="760" fetchPriority="high" />
-              <figcaption>{article.coverCredit}</figcaption>
+                width={article.coverWidth} height={article.coverHeight} fetchPriority="high" />
+              <figcaption>
+                {article.coverCredit}{' '}
+                <a href={article.coverSourceUrl || article.source.url}>Оригинал изображения</a>
+              </figcaption>
             </figure>
             <div className="blog-article-body">
               {article.sections.map(section => (
