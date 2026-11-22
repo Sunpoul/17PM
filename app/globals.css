@@ -398,3 +398,38 @@ a.project-trigger{text-decoration:none}
     grid-row: span 2;
   }
 }
+
+.topbar .article-site-nav a {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  min-height: 47px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: var(--inset);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.topbar .article-site-nav a:hover { background: #e6e6e2; }
+.topbar .article-site-nav a[aria-current] { background: var(--accent); }
+
+.article-back {
+  display: inline-block;
+  margin-bottom: clamp(17px, 2vw, 26px);
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.article-back:hover { text-decoration: underline; }
+
+.blog-article-header time { margin-top: 20px; }
+.blog-article-header time + .blog-article-divider { margin-top: 12px; }
+
+@media (max-width: 600px) {
+  .topbar .article-site-nav a {
+    min-height: 39px;
+    padding: 8px 7px;
+    font-size: 13px;
+  }
+}

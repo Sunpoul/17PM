@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef, type FormEvent } from 'react';
+import { useState, useRef, useEffect, type FormEvent } from 'react';
 import Modal from './modal';
 import SocialIcon from './social-icon';
 import MiniPlayer from './player';
@@ -44,6 +44,16 @@ function ProjectModal({initialIndex,onClose}:{initialIndex:number;onClose:()=>vo
 function Skills(){return <div className="skills">{skills.map(skill=><span key={skill}>{skill}</span>)}</div>}
 export default function Portfolio({blog}: {blog: BlogIndex}){
  const [section,setSection]=useState<Section>('info');
+ useEffect(()=>{
+  const sections: Section[]=['info','work','blog','contact'];
+  function restoreSection(){
+   const section=sections.find(value=>value===window.location.hash.slice(1));
+   if(section)setSection(section);
+  }
+  restoreSection();
+  window.addEventListener('hashchange',restoreSection);
+  return ()=>window.removeEventListener('hashchange',restoreSection);
+ },[]);
  const [modal,setModal]=useState<ActiveModal>(null);
  const [draftMail,setDraftMail]=useState<string|null>(null);
  function navigate(next:Section){setSection(next);window.scrollTo({top:0,behavior:'instant'});}

@@ -40,15 +40,21 @@ export default async function ArticlePage({ params }: Props) {
       <div className="site-shell">
         <header className="topbar">
           <a className="brand" href="/" aria-label="17PM — на главную">17PM</a>
-          <a className="pill outline" href="/blog/">Все статьи</a>
+          <nav className="article-site-nav" aria-label="Разделы портфолио">
+            <a href="/#info">Инфо</a>
+            <a href="/#work">Проекты</a>
+            <a href="/#blog" aria-current="true">Блог</a>
+            <a href="/#contact">Контакт</a>
+          </nav>
         </header>
         <main id="article" tabIndex={-1}>
           <article className="panel blog-article">
             <header className="blog-article-header">
+              <a className="article-back" href="/blog/" aria-label="Назад ко всем статьям">← Все статьи</a>
               <h1>{article.title}</h1>
               <p className="blog-article-lead">{article.lead}</p>
-              <hr className="blog-article-divider" />
               <time className="micro" dateTime={article.date}>{articleDate(article.date)}</time>
+              <hr className="blog-article-divider" />
               <p className="blog-article-credit">
                 Разбор исследования {article.source.name}. Автор оригинала — {article.source.author}.
                 {' '}<a href={article.source.url}>Оригинал на английском</a>
